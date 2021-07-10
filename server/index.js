@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const authRouter = require('./routes/auth');
@@ -5,7 +6,7 @@ const authRouter = require('./routes/auth');
 const connectDB = async () => {
     try {
         await mongoose.connect(
-            `mongodb+srv://thaison247:1234@learn-it.5sbjt.mongodb.net/learn-it?retryWrites=true&w=majority`,
+            `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@learn-it.5sbjt.mongodb.net/learn-it?retryWrites=true&w=majority`,
             {
                 useCreateIndex: true,
                 useNewUrlParser: true,
