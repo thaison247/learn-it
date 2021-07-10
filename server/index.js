@@ -23,10 +23,12 @@ const connectDB = async () => {
 }
 
 connectDB();
-
 const app = express();
+app.use(express.json()); // để server có thể đọc được data từ request có header là application/json
 
+// using router
 app.use('/api/auth', authRouter);
 
+// start server
 const PORT = 5000;
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
