@@ -12,8 +12,8 @@ POST http://localhost:5000/api/auth/login
 Content-Type: application/json
 
 {
-    "username": "Lanister",
-    "password": "1111"
+    "username": "thaison",
+    "password": "1234"
 }
 
 ###
@@ -26,4 +26,22 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGVhY
     "title": "Material UI",
     "description": "Learning MaterialUI tutorial",
     "url": "udemy.com"
+}
+
+###
+
+GET http://localhost:5000/api/posts
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGU5ZDQ2ZmEwMmU0MTEyZjQ4MTIyOWUiLCJpYXQiOjE2MjYxNjY1MzR9.ftO4lShr-8W5JIhDRF8iY3VSDMUBFJ2BvH17wDe52x0
+
+###
+
+PUT http://localhost:5000/api/posts/60e9de727ec0304bd4368722
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGU5ZDQ2ZmEwMmU0MTEyZjQ4MTIyOWUiLCJpYXQiOjE2MjYxNjY1MzR9.ftO4lShr-8W5JIhDRF8iY3VSDMUBFJ2BvH17wDe52x0
+
+{
+    "title": "VueJS",
+    "description": "Learning Vue framwork",
+    "url": "vue.org",
+    "status": "LEARNING"
 }

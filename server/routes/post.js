@@ -49,4 +49,51 @@ router.get("/", verifyToken, async (req, res) => {
   }
 });
 
+// @route PUT api/posts/:id
+// @desc Update post
+// @access Private
+router.put("/:id", verifyToken, async (req, res) => {
+  const { title, description, url, status } = req.body;
+
+  // simple validation
+  if (!title) {
+    return res
+      .status(400)
+      .json({ success: false, message: "Title is required" });
+  }
+
+  try {
+    let updatedPost = {
+      title,
+      description: description || "",
+      url: (url.startsWith("https://") ? url : `https://${url}`) || "",
+      status: status || "TO LEARN",
+    };
+
+    const postUpdateCondition = { _id: req.params.id, user: req.userId };
+    updatedPost = await Post.findOneAndUpdate(
+      postUpdateCondition,
+      updatedPost,
+      { new: true }
+    );
+
+    // user not authorized to update post or post not found
+    if (!updatedPost) {
+      return res.status(401).json({
+        success: false,
+        message: "Post not found or user not authorized",
+      });
+    }
+
+    return res.json({
+      success: true,
+      message: "Excellent progress!",
+      updatedPost,
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ success: false, message: "Internal server error" });
+  }
+});
+
 module.exports = router;
