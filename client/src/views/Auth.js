@@ -6,7 +6,6 @@ function Auth({ authRoute }) {
   let body;
   body = (
     <>
-      LearnIT
       {authRoute === "login" && <LoginForm />}
       {authRoute === "register" && <RegisterForm />}
     </>
