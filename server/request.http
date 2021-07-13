@@ -20,7 +20,7 @@ Content-Type: application/json
 
 POST http://localhost:5000/api/posts
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGVhY2FjY2Q1NjVhZjJhOTAwYmMxNzAiLCJpYXQiOjE2MjYwMDA0Mzd9.GR3ZTuOGagMRCANo9XFevFGRVe5aJmc9ltCfMxTg1B8
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGU5ZDQ2ZmEwMmU0MTEyZjQ4MTIyOWUiLCJpYXQiOjE2MjYxODM4ODN9.52Ur-bzU5MYWsVFjx4FiZx2aesZX0NDzyqzDAecevC4
 
 {
     "title": "Material UI",
@@ -31,7 +31,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGVhY
 ###
 
 GET http://localhost:5000/api/posts
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGU5ZDQ2ZmEwMmU0MTEyZjQ4MTIyOWUiLCJpYXQiOjE2MjYxNjY1MzR9.ftO4lShr-8W5JIhDRF8iY3VSDMUBFJ2BvH17wDe52x0
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGU5ZDQ2ZmEwMmU0MTEyZjQ4MTIyOWUiLCJpYXQiOjE2MjYxODM4ODN9.52Ur-bzU5MYWsVFjx4FiZx2aesZX0NDzyqzDAecevC4
 
 ###
 
@@ -45,3 +45,8 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGU5Z
     "url": "vue.org",
     "status": "LEARNING"
 }
+
+###
+
+DELETE http://localhost:5000/api/posts/60eacc93d565af2a900bc175
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGU5ZDQ2ZmEwMmU0MTEyZjQ4MTIyOWUiLCJpYXQiOjE2MjYxODM4ODN9.52Ur-bzU5MYWsVFjx4FiZx2aesZX0NDzyqzDAecevC4
