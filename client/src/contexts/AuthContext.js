@@ -50,6 +50,7 @@ const AuthContextProvider = ({ children }) => {
         );
       }
 
+      await loadUser();
       return response.data;
     } catch (error) {
       if (error.response.data) return error.response.data;
