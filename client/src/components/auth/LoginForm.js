@@ -1,20 +1,19 @@
 import React from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import { Link, useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useState, useContext } from "react";
 import { AuthContext } from "../../contexts/AuthContext";
+import AlertMessage from "../layout/AlertMessage";
 
 function LoginForm() {
   // Context
   const { loginUser } = useContext(AuthContext);
 
-  // Router
-  const history = useHistory();
-
   // Local state
   const [loginForm, setLoginForm] = useState({ username: "", password: "" });
   const { username, password } = loginForm;
+  const [alert, setAlert] = useState(null);
 
   const onChangeLoginForm = (e) => {
     setLoginForm({ ...loginForm, [e.target.name]: e.target.value });
@@ -27,7 +26,10 @@ function LoginForm() {
       const loginData = await loginUser(loginForm);
       console.log(loginData);
       if (loginData.success) {
-        history.push("/dashboard");
+        // history.push("/dashboard");
+      } else {
+        setAlert({ type: "danger", message: loginData.message });
+        setTimeout(() => setAlert(null), 4000);
       }
     } catch (error) {
       console.log(error);
@@ -37,6 +39,7 @@ function LoginForm() {
   return (
     <>
       <Form className="my-4" onSubmit={login}>
+        <AlertMessage info={alert} />
         <Form.Group className="mb-3">
           <Form.Control
             type="text"
