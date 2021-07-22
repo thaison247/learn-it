@@ -110,3 +110,11 @@ button.post-button.btn:active {
 .post-title {
   margin-bottom: 0.5rem;
 }
+
+.custom-nav {
+  margin: 0 8px;
+}
+
+.custom-nav--flex .navbar-nav:first-child {
+  flex: 1;
+}

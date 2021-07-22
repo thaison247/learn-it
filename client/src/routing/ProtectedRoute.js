@@ -3,7 +3,7 @@ import { AuthContext } from "../contexts/AuthContext";
 import { useContext } from "react";
 import { Redirect, Route } from "react-router-dom";
 import { Spinner } from "react-bootstrap";
-import NavBarMenu from "../components/layout/NavBarMenu";
+import NavbarMenu from "../components/layout/NavbarMenu";
 
 function ProtectedRoute({ component: Component, ...rest }) {
   const {
@@ -24,7 +24,7 @@ function ProtectedRoute({ component: Component, ...rest }) {
       render={(props) =>
         isAuthenticated ? (
           <>
-            <NavBarMenu></NavBarMenu>
+            <NavbarMenu></NavbarMenu>
             <Component {...rest} {...props} />
           </>
         ) : (
