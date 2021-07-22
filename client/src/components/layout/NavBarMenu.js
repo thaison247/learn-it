@@ -4,8 +4,19 @@ import learnItLogo from "../../assets/logo.svg";
 import logoutIcon from "../../assets/logout.svg";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContext } from "../../contexts/AuthContext";
 
 const NavbarMenu = () => {
+  const {
+    authState: {
+      user: { username },
+    },
+    logoutUser,
+  } = useContext(AuthContext);
+
+  const logout = () => logoutUser();
+
   return (
     <Navbar expand="lg" bg="primary" variant="dark" className="shadow">
       <Navbar.Brand className="font-weight-bolder text-white">
@@ -44,9 +55,13 @@ const NavbarMenu = () => {
 
         <Nav>
           <Nav.Link className="font-weight-bolder text-white" disabled>
-            Welcome
+            Welcome {username}
           </Nav.Link>
-          <Button variant="secondary" className="font-weight-bolder text-white">
+          <Button
+            variant="secondary"
+            className="font-weight-bolder text-white"
+            onClick={logout}
+          >
             <img
               src={logoutIcon}
               alt="logoutIcon"
